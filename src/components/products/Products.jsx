@@ -4,6 +4,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import "./Products.css";
 import { useParams } from "react-router-dom";
 import Product from "../products/Product.jsx";
+import TextTruncate from "react-text-truncate";
 
 function Products() {
   const { productId } = useParams();
@@ -39,7 +40,9 @@ function Products() {
                   />
                 </div>
                 <div className="card-body">
-                  <h5 className="card-title">{title}</h5>
+                  <h5 className="card-title">
+                    <TextTruncate line={1} truncateText="..." text={title} />
+                  </h5>
                   <p className="card-text">${price}</p>
                   <NavLink to={`/products/${id}`} className="btn btn-primary">
                     Info
